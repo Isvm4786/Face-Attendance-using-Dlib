@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Recognition Attendance System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f2f1; /* Light blue background */
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #77cdc8;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column; /* Arrange buttons vertically */
+        align-items: center; /* Center buttons horizontally */
+    }
+
+    .button {
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        text-align: center;
+    }
+
+    .button:hover {
+        transform: translateY(-5px);
+    }
+
+    .button img {
+        width: 250px; /* Adjust image size */
+        height: 250px; /* Adjust image size */
+        display: block;
+        margin: 0 auto;
+    }
+
+    .button span {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Face Recognition Attendance System</h1>
+    <div class="button-container">
+        <button class="button" id="registrationButton">
+            <img src="static/pics/images.png" alt="Registration Icon">
+            Registration
+        </button>
+        <button class="button" id="featureExtractionButton">
+            <img src="static\pics\Screenshot 2024-03-19 205253.png" alt="Feature Extraction Icon">
+            Feature Extraction
+        </button>
+        <button class="button" id="attendanceButton">
+            <img src="static\pics\Screenshot 2024-03-19 205940.png" alt="Attendance Icon">
+            Take Attendance
+        </button>
+        <button class="button" id="attendanceDataButton">
+            <img src="static\pics\Choosing-The-Right-Attendance-Management-System-839x480.jpg" alt="Attendance Data Icon">
+            Attendance Data
+        </button>
+    </div>
+</div>
+
+
+
+<script>
+    // Function to handle form submission when a button is clicked
+    function triggerScript(endpoint) {
+        // Create a hidden form dynamically
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = endpoint;
+
+        // Append the form to the body and submit it
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    // Add click event listeners to each button
+    document.getElementById('registrationButton').addEventListener('click', function() {
+        triggerScript('/trigger_file1'); // Call the triggerScript function with the appropriate endpoint
+    });
+
+    document.getElementById('featureExtractionButton').addEventListener('click', function() {
+        triggerScript('/trigger_file2');
+    });
+
+    document.getElementById('attendanceButton').addEventListener('click', function() {
+        triggerScript('/trigger_file3');
+    });
+
+    document.getElementById('attendanceDataButton').addEventListener('click', function() {
+        triggerScript('/trigger_file4');
+    });
+</script>
+</body>
+</html>
